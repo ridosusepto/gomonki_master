@@ -42,6 +42,7 @@ class Payment_model extends CI_Model
         $this->db->where('payment_id', $payment_id);
         return $this->db->get('tb_payment')->row();
     }
+    
     public function get_payment_pdf($payment_id)
     {
         $this->db->where('payment_id', $payment_id);

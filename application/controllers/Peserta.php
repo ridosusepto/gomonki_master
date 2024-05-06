@@ -89,6 +89,7 @@ class Peserta extends CI_Controller
             redirect('peserta');
         }
     }
+
     public function edit_aksi($id_siswa)
     {
         $this->_rules();
@@ -181,36 +182,5 @@ class Peserta extends CI_Controller
         // Load view detail_peserta.php
 
     }
-    // public function invoice($id_siswa)
-    // {
 
-    //     // Load model untuk mengambil data peserta berdasarkan $id_siswa
-    //     // $this->load->model('Peserta_model');
-    //     $data['title'] = 'Invoice';
-    //     $data['peserta'] = $this->Peserta_model->get_peserta_by_id($id_siswa);
-
-
-    //     $this->load->view('templates/header', $data);
-    //     $this->load->view('templates/sidebar', $data);
-    //     $this->load->view('peserta/invoice', $data);
-    //     $this->load->view('templates/footer');
-    //     // Load view detail_peserta.php
-
-    // }
-
-    // public function invoice($id_siswa)
-    // {
-
-    //     // Load model untuk mengambil data peserta berdasarkan $id_siswa
-    //     $this->load->model('Peserta_model');
-    //     $data['title'] = 'Detail';
-    //     $data['peserta'] = $this->Peserta_model->get_invoice_by_id($id_siswa);
-
-
-
-    //     $this->load->view('peserta/invoice', $data);
-
-    //     // Load view detail_peserta.php
-
-    // }
 }

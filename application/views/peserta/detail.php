@@ -1,5 +1,4 @@
 <section class="content">
-
       <!-- Default box -->
       <div class="card">
         <div class="card-header">
@@ -99,7 +98,6 @@
                         typographers and the like. Some people hate it and argue for
                         its demise, but others ignore.
                       </p>
-
                       <p>
                         <a href="#" class="link-black text-sm"><i class="fas fa-link mr-1"></i> Demo File 1 v1</a>
                       </p>
@@ -119,7 +117,6 @@
                   <b class="d-block">Tony Chicken</b>
                 </p>
               </div>
-
               <h5 class="mt-5 text-muted">Project files</h5>
               <ul class="list-unstyled">
                 <li>

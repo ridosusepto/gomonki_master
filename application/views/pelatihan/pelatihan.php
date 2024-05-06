@@ -3,7 +3,6 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="card">
-
                     <div class="card-header">
                         <h3 class="card-title">Data Kelas</h3>
                         <div class="card-tools">
@@ -71,7 +70,6 @@
                             </button>
                         </div>
                     </div>
-
                     <!-- /.card-header -->
                     <div class="card-body p-2 ">
                         <table class="table table-bordered">

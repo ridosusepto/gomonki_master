@@ -55,17 +55,19 @@ class Peserta_model extends CI_Model
         $this->db->where('id_siswa', $id_siswa);
         return $this->db->get('tb_siswa')->row();
     }
-    // Model Peserta_model.php
+    
     public function get_peserta_by_id($id_siswa)
     {
         $this->db->where('id_siswa', $id_siswa);
-        return $this->db->get('tb_siswa')->row(); // Mengembalikan satu baris data
+        return $this->db->get('tb_siswa')->row(); 
     }
+
     public function get_invoice_by_id($id_siswa)
     {
         $this->db->where('id_siswa', $id_siswa);
         return $this->db->get('tb_siswa')->row();
     }
+    
     public function get_invoice($id_siswa)
     {
         $this->db->where('id_siswa', $id_siswa);

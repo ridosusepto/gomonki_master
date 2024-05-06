@@ -39,13 +39,13 @@
                             <td><?= $ssw->email ?></td>
                             <td><?= $ssw->tanggal_lahir ?></td>
                             <td><?= $ssw->no_hp ?></td>
-                            <!-- <td><?= $ssw->magang_agama ?></td>
-                            <td><?= $ssw->jenis_kelamin ?></td> -->
+                            <!-- <td><?= $ssw->magang_agama ?></td> -->
+                            <!-- <td><?= $ssw->jenis_kelamin ?></td> -->
                             <td><?= $ssw->alamat ?></td>
-                            <!-- <td><?= $ssw->magang_kota ?></td>
-                            <td><?= $ssw->magang_kodepos ?></td>
-                            <td><?= $ssw->magang_ktp ?></td>
-                            <td><?= $ssw->magang_portofolio ?></td> -->
+                            <!-- <td><?= $ssw->magang_kota ?></td> -->
+                            <!-- <td><?= $ssw->magang_kodepos ?></td> -->
+                            <!-- <td><?= $ssw->magang_ktp ?></td> -->
+                            <!-- <td><?= $ssw->magang_portofolio ?></td> -->
                             <td><a href="<?= base_url('peserta/invoice/' . $ssw->id_siswa) ?>" class="btn btn-info btn-sm">Pembayaran</a></td>
                             <td><?= $ssw->status_nama ?></td>
 
@@ -54,7 +54,6 @@
                             <td>
                                 <button data-toggle="modal" data-target="#edit<?= $ssw->id_siswa ?>" class="btn btn-warning btn-sm m-1"><i class="fas fa-edit"></i></button>
                                 <button data-toggle="modal" data-target="#detail<?= $ssw->id_siswa ?>" class="btn btn-info btn-sm"><i class="fas fa-info-circle"></i></button>
-                                <!-- <a href="<?= base_url('peserta/detail/' . $ssw->id_siswa) ?>" class="btn btn-info btn-sm"><i class="fas fa-info-circle"></i></a> -->
                                 <a href="<?= base_url('peserta/delete/' . $ssw->id_siswa) ?>" class="btn btn-danger btn-sm m-1" onclick="return confirm('Apakah anda yakin menghapus data ini')"><i class="fas fa-trash-alt"></i></a>
                             </td>
                         </tr>
@@ -76,7 +75,6 @@
                 cursor: pointer;
             }
         </style>
-
         <script>
             $(document).ready(function() {
                 $(".highlight-row").click(function() {
@@ -238,7 +236,6 @@
 
         <?php foreach ($peserta as $ssw) : ?>
 
-
             <!-- Default box -->
             <div class="modal fade" id="detail<?= $ssw->id_siswa ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-lg"> <!-- Tambahkan kelas modal-lg di sini -->
@@ -279,7 +276,6 @@
                                         <label for="inputNIP">Agama</label>
                                         <input type="text" id="inputNIP" class="form-control" value="<?= $ssw->magang_agama ?>" readonly>
                                     </div>
-
                                 </div>
                                 <div class="col-md-4">
                                     <!-- Input Nama -->

@@ -32,15 +32,15 @@
                 <div class="row contacts">
                     <div class="col invoice-to">
                         <div class="text-gray-light">Kepada Yth.</div>
-                        <h2 class="to"><?php echo $peserta->nama_siswa; ?></h2>
-                        <div class="address"><?php echo $peserta->alamat; ?></div>
-                        <div class="address"><?php echo $peserta->no_hp; ?></div>
-                        <div class="email">Email: <?php echo $peserta->email; ?></a></div>
+                        <h2 class="to"><?php echo $invoice->nama_siswa; ?></h2>
+                        <div class="address"><?php echo $invoice->alamat; ?></div>
+                        <div class="address"><?php echo $invoice->no_hp; ?></div>
+                        <div class="email">Email: <?php echo $invoice->email; ?></a></div>
                     </div>
                     <div class="col invoice-details">
                         <h1 class="invoice-id">INVOICE 3-2-1</h1>
                         <div class="">Bulan : <?php echo $invoice->invoice_created; ?></div>
-                        <!-- <div class="date">Tenggat: <?php echo $peserta->tenggat_pembayaran; ?></div> -->
+                        <!-- <div class="date">Tenggat: <?php echo $invoice->tenggat_pembayaran; ?></div> -->
                     </div>
                 </div>
                 <table border="0" cellspacing="0" cellpadding="0">
@@ -55,31 +55,100 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="no">1</td>
-                            <td class="text-left">
+                            <td class="" style="font-size: 19px;">1</td>
 
+                            <td class="text-left">
                                 <a><?php echo $invoice->program_nama; ?> </a>
                             </td>
-                            <td class="unit">1</td>
-                            <td class="qty"> <?php echo $invoice->program_harga; ?></td>
-                            <td class="total"> <?php echo $invoice->program_harga; ?></td>
+                            <td class="unit" style="color: black;">1</td>
+                            <td class="qty"><?php echo $invoice->program_harga; ?></td>
+                            <td class="total" style="font-size: 19px; font-weight: bold; color: black;"><?php echo $invoice->program_harga; ?></td>
                         </tr>
-
-
+                        <tr>
+                            <td class="" style="font-size: 19px;">
+                                <?php if (!empty($invoice->program_nama1)) {
+                                    echo 2; // Jika ada datanya, tampilkan angka 1
+                                } else {
+                                    echo ''; // Jika tidak ada datanya, biarkan hasilnya kosong
+                                }
+                                ?>
+                            </td>
+                            <td class="text-left">
+                                <a><?php echo $invoice->program_nama1; ?></a>
+                            </td>
+                            <td class="unit" style="color: black;"><?php
+                                                                    if (!empty($invoice->program_nama1)) {
+                                                                        echo 2; // Jika ada datanya, tampilkan angka 1
+                                                                    } else {
+                                                                        echo ''; // Jika tidak ada datanya, biarkan hasilnya kosong
+                                                                    }
+                                                                    ?>
+                            </td>
+                            <td class="qty"><?php echo $invoice->program_harga1; ?></td>
+                            <td class="total" style="font-size: 19px; font-weight: bold; color: black;"><?php echo $invoice->program_harga1; ?></td>
+                        </tr>
+                        <tr>
+                            <td class="" style="font-size: 19px;"><?php
+                                                                    if (!empty($invoice->program_nama2)) {
+                                                                        echo 3; // Jika ada datanya, tampilkan angka 1
+                                                                    } else {
+                                                                        echo ''; // Jika tidak ada datanya, biarkan hasilnya kosong
+                                                                    }
+                                                                    ?>
+                            </td>
+                            <td class="text-left">
+                                <a><?php echo $invoice->program_nama2; ?></a>
+                            </td>
+                            <td class="unit" style="color: black;"><?php
+                                                                    if (!empty($invoice->program_nama2)) {
+                                                                        echo 1; // Jika ada datanya, tampilkan angka 1
+                                                                    } else {
+                                                                        echo ''; // Jika tidak ada datanya, biarkan hasilnya kosong
+                                                                    }
+                                                                    ?>
+                            </td>
+                            <td class="qty"><?php
+                                            if (!empty($invoice->program_harga2)) {
+                                                echo $invoice->program_harga2; // Jika ada datanya, tampilkan angka 1
+                                            } else {
+                                                echo ''; // Jika tidak ada datanya, biarkan hasilnya kosong
+                                            }
+                                            ?>
+                            </td>
+                            <td class="total" style="font-size: 19px; font-weight: bold; color: black;"><?php
+                                                                                                        if (!empty($invoice->program_harga2)) {
+                                                                                                            echo $invoice->program_harga2; // Jika ada datanya, tampilkan angka 1
+                                                                                                        } else {
+                                                                                                            echo ''; // Jika tidak ada datanya, biarkan hasilnya kosong
+                                                                                                        }
+                                                                                                        ?>
+                            </td>
+                        </tr>
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td colspan="2"></td>
-                            <td colspan="2">‎</td>
-                            <td><a>‎</a></td>
-                        </tr>
-                        <tr>
+                            <td colspan="4" style="font-size: 19px; font-weight: bold;">Jumlah Yang Harus Dibayar</td>
+                            <td style="font-size: 19px;"><?php
+                                                            $total_harga = 0;
 
-                        </tr>
-                        <tr>
-                            <td colspan="2"></td>
-                            <td colspan="2">Jumlah Yang Harus Dibayar</td>
-                            <td> <?php echo $invoice->program_harga; ?></td>
+                                                            // Cek apakah $invoice->program_harga ada dan konversi ke integer
+                                                            if (isset($invoice->program_harga)) {
+                                                                $total_harga += intval($invoice->program_harga);
+
+                                                                // Cek apakah $invoice->program_harga1 ada dan konversi ke integer
+                                                                if (isset($invoice->program_harga1)) {
+                                                                    $total_harga += intval($invoice->program_harga1);
+                                                                }
+
+                                                                // Cek apakah $invoice->program_harga2 ada dan konversi ke integer
+                                                                if (isset($invoice->program_harga2)) {
+                                                                    $total_harga += intval($invoice->program_harga2);
+                                                                }
+                                                            }
+
+                                                            echo $total_harga;
+                                                            ?>
+                            </td>
                         </tr>
                     </tfoot>
                 </table>

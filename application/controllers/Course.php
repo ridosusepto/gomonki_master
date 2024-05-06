@@ -6,7 +6,7 @@ class Course extends CI_Controller
 
 
     public function __construct()
-    {   
+    {
         parent::__construct();
         cek_login();
         $this->load->model('Course_model');
@@ -21,7 +21,7 @@ class Course extends CI_Controller
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
-        $this->load->view('course/course', $data); // Pass $data to the 'course' view
+        $this->load->view('course/course', $data);
         $this->load->view('templates/footer');
     }
 
@@ -38,15 +38,10 @@ class Course extends CI_Controller
     public function tambah_aksi()
     {
         echo "Inside tambah_aksi method";
-        // Validasi form
         $this->_rules();
-
         if ($this->form_validation->run() == FALSE) {
-            // Jika validasi gagal, kembalikan ke halaman tambah
-
             $this->tambah();
         } else {
-            // Jika validasi berhasil, tambahkan data ke database
             $data = array(
                 'course_nama'      => $this->input->post('course_nama'),
                 'course_tanggal'   => $this->input->post('course_tanggal'),
@@ -57,22 +52,18 @@ class Course extends CI_Controller
                 'course_harga'     => $this->input->post('course_harga'),
             );
 
-            // Panggil model untuk menyimpan data
-            $this->Course_model->insert_data($data, 'tb_course'); // Assuming course_id is auto-incremented
+            $this->Course_model->insert_data($data, 'tb_course');
 
-            // Set pesan sukses menggunakan session
             $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
-               <strong>Sukses!</strong> Data berhasil ditambahkan.
-               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                 <span aria-hidden="true">&times;</span>
-               </button>
+            <strong>Sukses!</strong> Data berhasil ditambahkan.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
              </div>');
 
-            // Redirect ke halaman course setelah menambahkan data
             redirect('course');
         }
     }
-
 
     public function _rules()
     {
@@ -102,7 +93,6 @@ class Course extends CI_Controller
     public function edit_aksi($course_id)
     {
         $this->_rules();
-
         if ($this->form_validation->run() == FALSE) {
             $this->index();
         } else {
@@ -124,7 +114,7 @@ class Course extends CI_Controller
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
-        </div>');
+            </div>');
 
             redirect('course');
         }
@@ -141,7 +131,7 @@ class Course extends CI_Controller
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
-    </div>');
+        </div>');
 
         redirect('course');
     }

@@ -3,7 +3,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Status_model extends CI_Model
 {
-
     public function get_data($table)
     {
         return $this->db->get($table);
@@ -20,11 +19,9 @@ class Status_model extends CI_Model
         $this->db->update($table, $data);
     }
 
-
     public function delete($where, $table)
     {
         $this->db->where($where);
         $this->db->delete($table);
     }
-
 }

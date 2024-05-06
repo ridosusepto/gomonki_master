@@ -3,7 +3,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Invoice_model extends CI_Model
 {
-
     public function get_data($table)
     {
         return $this->db->get($table);
@@ -14,10 +13,12 @@ class Invoice_model extends CI_Model
         $query = $this->db->get('tb_invoice');
         return $query->result();
     }
+
     public function insert_data($data, $table)
     {
         $this->db->insert($table, $data);
     }
+
     public function get_invoices_by_id_magang($id_siswa)
     {
         return $this->db->get_where('tb_invoice', array('id_siswa' => $id_siswa))->result();
@@ -52,6 +53,7 @@ class Invoice_model extends CI_Model
     {
         return $this->db->get_where('tb_invoice', array('invoice_id' => $invoice_id))->row();
     }
+    
     public function get_invoice_id($id_siswa)
     {
         $this->db->select('invoice_id');

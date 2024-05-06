@@ -48,7 +48,6 @@ class Payment extends CI_Controller
         $this->load->view('templates/footer');
     }
 
-
     public function tambah_aksi()
     {
         echo "Inside tambah_aksi method";
@@ -134,11 +133,12 @@ class Payment extends CI_Controller
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
-        </div>');
+            </div>');
 
             redirect('payment');
         }
     }
+
     public function delete($id)
     {
         $where = array('payment_id' => $id);
@@ -154,6 +154,7 @@ class Payment extends CI_Controller
 
         redirect('payment');
     }
+    
     public function upload_image($payment_id)
     {
         // Konfigurasi upload gambar

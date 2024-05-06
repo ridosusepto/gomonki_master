@@ -12,7 +12,6 @@ class User extends CI_Controller
         $this->load->library('form_validation');
     }
 
-
     public function profile($id)
     {
         cek_login();
@@ -30,6 +29,7 @@ class User extends CI_Controller
             redirect('dashboard', 'refresh');
         }
     }
+    
     public function update_profile()
     {
         $this->form_validation->set_rules('username', 'Username', 'trim|required');

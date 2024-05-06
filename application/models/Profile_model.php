@@ -18,7 +18,5 @@ class Profile_model extends CI_Model
         $this->db->where('id_admin', $id_admin);
         $this->db->update('admin', $data);
     }
-
-
 }
 ?>

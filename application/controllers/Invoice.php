@@ -27,8 +27,6 @@ class Invoice extends CI_Controller
         $this->load->view('templates/footer');
     }
 
-
-
     public function tambah_invoice($id_siswa)
     {
         $data['title'] = 'Tambah Invoice';
@@ -93,7 +91,6 @@ class Invoice extends CI_Controller
         }
     }
 
-
     public function fungsi_get_data_program()
     {
         $program_nama = $this->input->post('program_nama');
@@ -101,14 +98,40 @@ class Invoice extends CI_Controller
         echo json_encode($data);
     }
 
-    public function view_invoice($id_siswa)
+    // public function view_invoice($id_siswa)
+    // {
+    //     // Mendapatkan data invoice dari model berdasarkan $id_siswa
+    //     $data['invoice_data'] = $this->Invoice_model->get_invoice_data($id_siswa);
+    //     $data['peserta'] = $this->Peserta_model->get_peserta_by_id($id_siswa);
+    //     $data['invoice'] = $this->Peserta_model->get_invoice($id_siswa);
+    //     // Load view 'invoice_view' dan passing data invoice
+    //     $this->load->view('peserta/invoice_view', $data);
+    // }
+    
+    public function view_invoice($invoice_id)
     {
         // Mendapatkan data invoice dari model berdasarkan $id_siswa
-        $data['invoice_data'] = $this->Invoice_model->get_invoice_data($id_siswa);
-        $data['peserta'] = $this->Peserta_model->get_peserta_by_id($id_siswa);
-        $data['invoice'] = $this->Peserta_model->get_invoice($id_siswa);
+        $data['invoice'] = $this->Invoice_model->get_invoice_by_id($invoice_id);
+        $data['programs'] = $this->Program_model->getAllPrograms();
+        $data['invoice_id'] = $invoice_id; // Pastikan $invoice_id didefinisikan
         // Load view 'invoice_view' dan passing data invoice
         $this->load->view('peserta/invoice_view', $data);
+    }
+
+    public function view_uang($invoice_id)
+    {
+        $data['title'] = 'revisiinvoice';
+        $data['invoice'] = $this->Invoice_model->get_invoice_by_id($invoice_id);
+        $data['programs'] = $this->Program_model->getAllPrograms();
+        $data['invoice_id'] = $invoice_id; // Pastikan $invoice_id didefinisikan
+
+        if (!$data['invoice']) {
+            // Handle jika data invoice tidak ditemukan
+            // Contoh: redirect ke halaman error atau menampilkan pesan error
+        }
+
+        $this->load->view('peserta/view_uang', $data); // Menyertakan data invoice ke view
+      
     }
 
     public function edit_invoice($invoice_id)
@@ -128,7 +151,6 @@ class Invoice extends CI_Controller
         $this->load->view('peserta/edit_invoice', $data); // Menyertakan data invoice ke view
         $this->load->view('templates/footer');
     }
-
 
     public function edit_aksi($invoice_id)
     {

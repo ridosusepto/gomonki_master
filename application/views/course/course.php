@@ -1,15 +1,11 @@
 </div>
-
-
 </div>
-
 <div class="card">
     <div class="card-header">
         <a href="<?= base_url('course/tambah') ?>" class="btn btn-primary"><i class="fas fa-plus"></i> Tambah Course</a>
         <!-- <h3 class="card-title">Data Peserta Magang Manimonki</h3> -->
-
     </div>
-    <!-- /.card-header -->
+    <!-- /.Tabel -->
     <div class="card-body">
         <div class="table-responsive">
             <table id="example1" class="table table-bordered table-striped">
@@ -20,7 +16,6 @@
                         <th>Deskripsi</th>
                         <th>Tanggal</th>
                         <th>Jumlah</th>
-
                         <th>Mentor</th>
                         <th>Harga</th>
                         <th>Keterangan</th>
@@ -36,23 +31,21 @@
                             <td><?= $ssw->course_deskripsi ?></td>
                             <td><?= $ssw->course_tanggal ?></td>
                             <td><?= $ssw->course_jumlah ?></td>
-
                             <td><?= $ssw->course_mentor ?></td>
                             <td><?= $ssw->course_harga ?></td>
                             <td><?= $ssw->course_ket ?></td>
-
                             <td>
                                 <button data-toggle="modal" data-target="#edit<?= $ssw->course_id ?>" class="btn btn-warning btn-sm m-1"><i class="fas fa-edit"></i></button>
                                 <a href="<?= base_url('course/delete/' . $ssw->course_id) ?>" class="btn btn-danger btn-sm m-1" onclick="return confirm('Apakah anda yakin menghapus data ini')"><i class="fas fa-trash-alt"></i></a>
-
                             </td>
                         </tr>
                     </tbody>
                 <?php endforeach ?>
             </table>
         </div>
+    <!-- End Tabel -->
 
-        <!-- Modal -->
+    <!-- Edit Course -->
         <?php foreach ($course as $ssw) : ?>
     <div class="modal fade" id="edit<?= $ssw->course_id ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -117,7 +110,6 @@
                                     <?= form_error('course_harga', '<div class="text-small text-danger">', '</div>'); ?>
                                 </div>
                             </div>
-                            <!-- Add more fields as needed -->
                         </div>
 
                         <div class="modal-footer">
@@ -130,6 +122,5 @@
         </div>
     </div>
 <?php endforeach; ?>
-
-
+<!-- End Edit Course -->
     </div>
